@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
 };
-
+import { Analytics } from "@vercel/analytics/next"
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
@@ -44,8 +44,8 @@ export default function RootLayout({
             <main className="">
               {children}
             </main>
-           
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

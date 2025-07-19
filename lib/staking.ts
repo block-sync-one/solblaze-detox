@@ -1,6 +1,5 @@
 import { depositStake } from '@solana/spl-stake-pool';
-import { PublicKey, Transaction, TransactionInstruction, Connection, Signer } from '@solana/web3.js';
-import { WalletContextState } from '@solana/wallet-adapter-react';
+import { PublicKey, TransactionInstruction, Connection, Signer } from '@solana/web3.js';
 import { StakeInfo } from '@/types/stake';
 
 

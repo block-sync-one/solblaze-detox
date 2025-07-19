@@ -3,9 +3,9 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { StakeInfo, Validator } from '@/types/stake';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-import { PublicKey, StakeProgram, Transaction } from '@solana/web3.js';
+import {  StakeProgram, Transaction } from '@solana/web3.js';
 import { Icon } from '@iconify/react';
-
+import { track } from '@vercel/analytics';
 import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
 import StakeAccountItem from './stake-account-item';
 import SelectedAccountDetails from './selected-account-details';
@@ -42,7 +42,6 @@ export default function StakeBox({ validators }: { validators: Validator[] }) {
   }, []);
 
   const handleSelectStakeAccount = useCallback((account: StakeInfo) => {
-    console.log('account', account)
     setSelectedAccount(account);
   }, []);
 
@@ -142,7 +141,11 @@ export default function StakeBox({ validators }: { validators: Validator[] }) {
 
       const rawTransaction = signedTx.serialize({ requireAllSignatures: false });
       const txId = await connection.sendRawTransaction(rawTransaction);
-      console.log('confirmed txId', txId)
+      track('delegate_stake', {
+        validator: selectedAccount.validatorInfo?.name,
+        amount: selectedAccount.balance,
+        txId: txId,
+      })
       updateSolBlazePool(txId);
       setDelegateStatus('Delegated');
       addToast({
