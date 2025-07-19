@@ -34,14 +34,14 @@ export const siteConfig = {
     locale: "en_US",
     title: "SolBlaze Detox - Clean The Network",
     description:
-      "Advanced Solana validator monitoring and network health optimization tools",
+      "A tool to clean the network by re-delegating your stake to good validators",
     siteName: "SolBlaze Detox",
   },
   twitter: {
     card: "summary_large_image" as const,
     title: "SolBlaze Detox - Clean The Network",
     description:
-      "Advanced Solana validator monitoring and network health optimization tools",
+      "A tool to clean the network by re-delegating your stake to good validators",
     creator: "@SolBlaze", // Update with actual Twitter handle
     site: "@SolBlaze", // Update with actual Twitter handle
   },
