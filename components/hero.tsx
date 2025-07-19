@@ -10,7 +10,7 @@ export default async function Hero() {
 
   try {
     // Use the full URL with domain or environment variable during build
-    const baseUrl = process.env.VERCEL_URL;
+    const baseUrl = process.env.API_URL;
 
     const response = await fetch(`${baseUrl}/api/validators`, {
       // Add cache control to prevent build-time issues
