@@ -1,12 +1,12 @@
 export type Validator = {
-  name: string | null
-  voteAccount: string
-  policy: string
-  warning: string
-}
+  name: string | null;
+  voteAccount: string;
+  policy: string;
+  warning: string;
+};
 export type StakeInfo = {
   balance: number;
-  address: string;  
+  address: string;
   isActive: boolean;
   validatorInfo: {
     voteAccount: string;
@@ -16,4 +16,4 @@ export type StakeInfo = {
     warning: string;
   };
   state: string;
-}
+};

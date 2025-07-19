@@ -1,1 +1,1 @@
-export { default as StakeBox } from './stake-box';
+export { default as StakeBox } from "./stake-box";

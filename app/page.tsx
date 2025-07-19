@@ -6,10 +6,10 @@ import FAQ from "@/components/faq";
 export default function Home() {
   return (
     <>
-    <Hero />
-    <WhyItMatters />
-    <HowItWorks />
-    <FAQ />
-  </>
+      <Hero />
+      <WhyItMatters />
+      <HowItWorks />
+      <FAQ />
+    </>
   );
 }

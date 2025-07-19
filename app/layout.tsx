@@ -47,9 +47,7 @@ export const metadata: Metadata = {
       { url: "/favicon.ico", sizes: "any" },
       { url: "/icon.svg", type: "image/svg+xml" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     shortcut: "/favicon-16x16.png",
   },
   manifest: siteConfig.manifest,
@@ -65,7 +63,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -109,21 +107,13 @@ export default function RootLayout({
     <html suppressHydrationWarning lang={siteConfig.language}>
       <head>
         <script
-          type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          type="application/ld+json"
         />
       </head>
-      <body
-        className={clsx(
-          "min-h-screen bg-background",
-          fontSans.variable,
-        )}
-      >
+      <body className={clsx("min-h-screen bg-background", fontSans.variable)}>
         <Providers themeProps={{ attribute: "class" }}>
-         
-            <main className="">
-              {children}
-            </main>
+          <main className="">{children}</main>
         </Providers>
         <Analytics />
       </body>

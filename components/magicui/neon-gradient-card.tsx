@@ -85,6 +85,7 @@ export const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
     const updateDimensions = () => {
       if (containerRef.current) {
         const { offsetWidth, offsetHeight } = containerRef.current;
+
         setDimensions({ width: offsetWidth, height: offsetHeight });
       }
     };
@@ -100,6 +101,7 @@ export const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
   useEffect(() => {
     if (containerRef.current) {
       const { offsetWidth, offsetHeight } = containerRef.current;
+
       setDimensions({ width: offsetWidth, height: offsetHeight });
     }
   }, [children]);
@@ -107,6 +109,10 @@ export const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
   return (
     <div
       ref={containerRef}
+      className={cn(
+        "relative z-10 size-full rounded-[var(--border-radius)]",
+        className,
+      )}
       style={
         {
           "--border-size": `${borderSize}px`,
@@ -122,10 +128,6 @@ export const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
           "--after-blur": `${dimensions.width / 3}px`,
         } as CSSProperties
       }
-      className={cn(
-        "relative z-10 size-full rounded-[var(--border-radius)]",
-        className,
-      )}
       {...props}
     >
       <div

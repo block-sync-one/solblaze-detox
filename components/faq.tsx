@@ -1,45 +1,51 @@
-"use client"
-import { useState } from 'react'
-import { Icon } from '@iconify/react'
+"use client";
+import { useState } from "react";
+import { Icon } from "@iconify/react";
 
 interface FAQItem {
-  question: string
-  answer: string
+  question: string;
+  answer: string;
 }
 
 const faqData: FAQItem[] = [
   {
     question: "What is SolBlaze and how does it work?",
-    answer: "SolBlaze is a liquid staking protocol that automatically distributes your SOL across high-performance, trusted validators. You receive bSOL tokens representing your staked SOL, which you can use in DeFi while still earning staking rewards. Our intelligent delegation system ensures optimal validator selection for maximum security and performance."
+    answer:
+      "SolBlaze is a liquid staking protocol that automatically distributes your SOL across high-performance, trusted validators. You receive bSOL tokens representing your staked SOL, which you can use in DeFi while still earning staking rewards. Our intelligent delegation system ensures optimal validator selection for maximum security and performance.",
   },
   {
     question: "What are the risks of delegating to bad validators?",
-    answer: "Bad validators can cause slow network experience, missed rewards, and contribute to network instability. They may have good uptime & low commission rates, but this doesnt mean they are good for the network."
+    answer:
+      "Bad validators can cause slow network experience, missed rewards, and contribute to network instability. They may have good uptime & low commission rates, but this doesn&apos;t mean they are good for the network.",
   },
   {
     question: "How does SolBlaze protect against validator risks?",
-    answer: "SolBlaze automatically diversifies your stake across multiple vetted, high-performance validators. Our selection criteria include uptime history, commission rates, security practices, and network contribution. This diversification protects you from individual validator failures while supporting overall network health."
+    answer:
+      "SolBlaze automatically diversifies your stake across multiple vetted, high-performance validators. Our selection criteria include uptime history, commission rates, security practices, and network contribution. This diversification protects you from individual validator failures while supporting overall network health.",
   },
   {
     question: "Can I unstake my SOL anytime?",
-    answer: "Yes! With liquid staking through SolBlaze, you can trade your bSOL tokens for SOL anytime on various exchanges, or use our unstaking mechanism. This provides much more flexibility than traditional staking, which requires waiting for the unstaking period."
+    answer:
+      "Yes! With liquid staking through SolBlaze, you can trade your bSOL tokens for SOL anytime on various exchanges, or use our unstaking mechanism. This provides much more flexibility than traditional staking, which requires waiting for the unstaking period.",
   },
   {
     question: "What fees does SolBlaze charge?",
-    answer: "SolBlaze charges a small commission (around 5%) on staking rewards, with no deposit or withdrawal fees. This fee helps maintain our validator selection algorithms, security monitoring, and protocol development. You keep the majority of your staking rewards while benefiting from professional validator management."
+    answer:
+      "SolBlaze charges a small commission (around 5%) on staking rewards, with no deposit or withdrawal fees. This fee helps maintain our validator selection algorithms, security monitoring, and protocol development. You keep the majority of your staking rewards while benefiting from professional validator management.",
   },
   {
     question: "How do I get started with SolBlaze?",
-    answer: "Simply connect your Solana wallet, select existing stake accounts you want to delegate to SolBlaze, and confirm the transaction. You'll immediately receive bSOL tokens representing your stake, which you can hold for staking rewards or use in DeFi protocols throughout the Solana ecosystem."
-  }
-]
+    answer:
+      "Simply connect your Solana wallet, select existing stake accounts you want to delegate to SolBlaze, and confirm the transaction. You'll immediately receive bSOL tokens representing your stake, which you can hold for staking rewards or use in DeFi protocols throughout the Solana ecosystem.",
+  },
+];
 
 export default function FAQ() {
-  const [openItem, setOpenItem] = useState<number | null>(null)
+  const [openItem, setOpenItem] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {
-    setOpenItem(openItem === index ? null : index)
-  }
+    setOpenItem(openItem === index ? null : index);
+  };
 
   return (
     <section className="py-24 bg-background">
@@ -60,17 +66,21 @@ export default function FAQ() {
               className="bg-secondary/30 backdrop-blur-sm rounded-2xl border border-primary/20 overflow-hidden shadow-lg"
             >
               <button
-                onClick={() => toggleItem(index)}
                 className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-secondary/40 transition-colors duration-200"
+                onClick={() => toggleItem(index)}
               >
                 <h3 className="text-lg font-semibold text-text pr-4 leading-relaxed">
                   {item.question}
                 </h3>
-                <Icon 
-                  icon={openItem === index ? "material-symbols:remove" : "material-symbols:add"} 
+                <Icon
                   className={`w-6 h-6 text-primary transition-transform duration-200 flex-shrink-0 ${
-                    openItem === index ? 'rotate-180' : ''
-                  }`} 
+                    openItem === index ? "rotate-180" : ""
+                  }`}
+                  icon={
+                    openItem === index
+                      ? "material-symbols:remove"
+                      : "material-symbols:add"
+                  }
                 />
               </button>
               {openItem === index && (
@@ -89,27 +99,31 @@ export default function FAQ() {
         {/* Contact CTA */}
         <div className="mt-16 text-center">
           <div className="bg-primary/10 border border-primary/30 rounded-2xl p-8">
-            <Icon icon="material-symbols:help" className="w-12 h-12 text-primary mx-auto mb-4" />
+            <Icon
+              className="w-12 h-12 text-primary mx-auto mb-4"
+              icon="material-symbols:help"
+            />
             <h3 className="text-2xl font-bold text-text mb-4">
               Still have questions?
             </h3>
             <p className="text-text/70 mb-6 font-light">
-              Join our community or reach out to our team for personalized support.
+              Join our community or reach out to our team for personalized
+              support.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="#"
+              <button
                 className="bg-primary text-secondary font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors duration-200 flex items-center gap-2"
+                onClick={() =>
+                  window.open("https://discord.gg/8c9KAYKS9v", "_blank")
+                }
               >
-                <Icon icon="material-symbols:forum" className="w-5 h-5" />
+                <Icon className="w-5 h-5" icon="material-symbols:forum" />
                 Join Discord
-              </a>
-             
+              </button>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-  

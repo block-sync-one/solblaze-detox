@@ -1,5 +1,6 @@
-import { Metadata } from 'next';
-import { siteConfig } from '@/config/site';
+import { Metadata } from "next";
+
+import { siteConfig } from "@/config/site";
 
 interface SEOProps {
   title?: string;
@@ -19,7 +20,7 @@ export function generateSEO({
   keywords = siteConfig.keywords,
 }: SEOProps = {}): Metadata {
   const pageTitle = title ? `${title} - ${siteConfig.name}` : siteConfig.name;
-  
+
   return {
     title: pageTitle,
     description,
@@ -37,45 +38,48 @@ export function generateSEO({
           alt: pageTitle,
         },
       ],
-      locale: 'en_US',
-      type: 'website',
+      locale: "en_US",
+      type: "website",
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: pageTitle,
       description,
       images: [image],
       creator: siteConfig.twitter.creator,
     },
-    robots: noIndex ? 'noindex, nofollow' : 'index, follow',
+    robots: noIndex ? "noindex, nofollow" : "index, follow",
     alternates: {
       canonical: url,
     },
   };
 }
 
-export function generateStructuredData(type: 'WebSite' | 'Organization' | 'WebPage' | 'Article', data: any) {
+export function generateStructuredData(
+  type: "WebSite" | "Organization" | "WebPage" | "Article",
+  data: any,
+) {
   const baseData = {
-    '@context': 'https://schema.org',
-    '@type': type,
+    "@context": "https://schema.org",
+    "@type": type,
   };
 
   switch (type) {
-    case 'WebSite':
+    case "WebSite":
       return {
         ...baseData,
         name: siteConfig.name,
         description: siteConfig.description,
         url: siteConfig.url,
         potentialAction: {
-          '@type': 'SearchAction',
+          "@type": "SearchAction",
           target: `${siteConfig.url}/search?q={search_term_string}`,
-          'query-input': 'required name=search_term_string',
+          "query-input": "required name=search_term_string",
         },
         ...data,
       };
-    
-    case 'Organization':
+
+    case "Organization":
       return {
         ...baseData,
         name: siteConfig.creator,
@@ -83,41 +87,41 @@ export function generateStructuredData(type: 'WebSite' | 'Organization' | 'WebPa
         logo: `${siteConfig.url}/logo.png`,
         sameAs: [
           // Add social media URLs here
-          'https://twitter.com/solblaze_org',
-          'https://github.com/solblaze_org',
+          "https://twitter.com/solblaze_org",
+          "https://github.com/solblaze_org",
         ],
         ...data,
       };
-    
-    case 'WebPage':
+
+    case "WebPage":
       return {
         ...baseData,
         name: data.title || siteConfig.name,
         description: data.description || siteConfig.description,
         url: data.url || siteConfig.url,
         isPartOf: {
-          '@type': 'WebSite',
+          "@type": "WebSite",
           name: siteConfig.name,
           url: siteConfig.url,
         },
         ...data,
       };
-    
-    case 'Article':
+
+    case "Article":
       return {
         ...baseData,
         headline: data.title,
         description: data.description,
         image: data.image || siteConfig.ogImage,
         author: {
-          '@type': 'Organization',
+          "@type": "Organization",
           name: siteConfig.creator,
         },
         publisher: {
-          '@type': 'Organization',
+          "@type": "Organization",
           name: siteConfig.publisher,
           logo: {
-            '@type': 'ImageObject',
+            "@type": "ImageObject",
             url: `${siteConfig.url}/logo.png`,
           },
         },
@@ -125,21 +129,23 @@ export function generateStructuredData(type: 'WebSite' | 'Organization' | 'WebPa
         dateModified: data.modifiedAt || data.publishedAt,
         ...data,
       };
-    
+
     default:
       return baseData;
   }
 }
 
-export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+export function generateBreadcrumbSchema(
+  items: Array<{ name: string; url: string }>,
+) {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: index + 1,
       name: item.name,
       item: item.url,
     })),
   };
-} 
+}

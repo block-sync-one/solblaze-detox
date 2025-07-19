@@ -2,7 +2,8 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "SolBlaze Detox",
-  description: "Clean The Network - Advanced Solana validator monitoring and network health optimization tools",
+  description:
+    "Clean The Network - Advanced Solana validator monitoring and network health optimization tools",
   url: "https://solblaze-detox.solanahub.app", // Update with your actual domain
   ogImage: "/og-image.jpg", // We'll need to add this image
   keywords: [
@@ -14,7 +15,7 @@ export const siteConfig = {
     "staking",
     "cryptocurrency",
     "Web3",
-    "decentralized"
+    "decentralized",
   ],
   authors: [
     {
@@ -32,13 +33,15 @@ export const siteConfig = {
     type: "website" as const,
     locale: "en_US",
     title: "SolBlaze Detox - Clean The Network",
-    description: "Advanced Solana validator monitoring and network health optimization tools",
+    description:
+      "Advanced Solana validator monitoring and network health optimization tools",
     siteName: "SolBlaze Detox",
   },
   twitter: {
     card: "summary_large_image" as const,
     title: "SolBlaze Detox - Clean The Network",
-    description: "Advanced Solana validator monitoring and network health optimization tools",
+    description:
+      "Advanced Solana validator monitoring and network health optimization tools",
     creator: "@SolBlaze", // Update with actual Twitter handle
     site: "@SolBlaze", // Update with actual Twitter handle
   },
