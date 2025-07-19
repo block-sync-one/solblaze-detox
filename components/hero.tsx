@@ -1,26 +1,15 @@
-"use client"
-import { useState, useEffect, useCallback, useMemo } from 'react'
+
+
 import { Icon } from '@iconify/react'
-import StakeBox from './stake-box'
+import { StakeBox } from './staking'
 import BadValidatorsCarousel from './bad-validators-carousel'
 import { Validator } from '@/types/stake';
 
-export default function Hero() {
-  const [validators, setValidators] = useState<Validator[]>([]);
-  
-  const fetchValidators = useCallback(() => {
-    fetch('/api/validators')
-      .then(response => response.json())
-      .then(data => setValidators(data))
-      .catch(error => console.error('Error fetching bad validators:', error));
-  }, []);
+export default async function Hero() {
 
-  useEffect(() => {
-    fetchValidators();
-  }, [fetchValidators]);
+    const validators = await(await fetch('http://localhost:3000/api/validators')).json()
 
-  // Memoize validators to prevent unnecessary prop changes
-  const memoizedValidators = useMemo(() => validators, [validators]);
+ 
 
   return (
     <section className="relative overflow-hidden bg-background">
@@ -57,7 +46,7 @@ export default function Hero() {
               <Icon icon="material-symbols:warning" className="w-4 h-4" />
               Active network threats:
             </div>
-            <BadValidatorsCarousel badValidators={memoizedValidators} />
+            <BadValidatorsCarousel badValidators={validators} />
           </div>
 
           {/* Transition Bridge */}
@@ -101,7 +90,7 @@ export default function Hero() {
 
         {/* Right side (Staking UI Box) */}
         <div className="lg:w-1/2 lg:pl-12">
-          <StakeBox validators={memoizedValidators} />
+          <StakeBox validators={validators} />
         </div>
       </div>
     </section>
