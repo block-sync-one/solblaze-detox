@@ -17,6 +17,7 @@ export default async function Hero() {
       next: { revalidate: 3600 }, // Revalidate every hour
     });
 
+    console.log("response", response);
     if (response.ok) {
       validators = await response.json();
     }

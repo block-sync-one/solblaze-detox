@@ -66,10 +66,7 @@ export const metadata: Metadata = {
 import { Analytics } from "@vercel/analytics/next";
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
+
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
