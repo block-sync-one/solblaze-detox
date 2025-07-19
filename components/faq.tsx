@@ -19,6 +19,11 @@ const faqData: FAQItem[] = [
       "Bad validators can cause slow network experience, missed rewards, and contribute to network instability. They may have good uptime & low commission rates, but this doesn&apos;t mean they are good for the network.",
   },
   {
+    question: "What is the definition of high commission?",
+    answer:
+      "High commission is a validator that charges more than 5% in commission / 10% in MEV fees. SolBlaze strategy will automatically re-delegate your stake to a validator that is not charging high commission.",
+  },
+  {
     question: "How does SolBlaze protect against validator risks?",
     answer:
       "SolBlaze automatically diversifies your stake across multiple vetted, high-performance validators. Our selection criteria include uptime history, commission rates, security practices, and network contribution. This diversification protects you from individual validator failures while supporting overall network health.",
