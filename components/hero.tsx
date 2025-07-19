@@ -6,8 +6,26 @@ import BadValidatorsCarousel from './bad-validators-carousel'
 import { Validator } from '@/types/stake';
 
 export default async function Hero() {
+  let validators: Validator[] = [];
+  
+  try {
+    // Use the full URL with domain or environment variable during build
+    const baseUrl = process.env.VERCEL_URL 
 
-    const validators = await(await fetch('http://localhost:3000/api/validators')).json()
+      
+    const response = await fetch(`${baseUrl}/api/validators`, {
+      // Add cache control to prevent build-time issues
+      next: { revalidate: 3600 } // Revalidate every hour
+    });
+    
+    if (response.ok) {
+      validators = await response.json();
+    }
+  } catch (error) {
+    console.error('Failed to fetch validators:', error);
+    // Provide fallback empty array to prevent build failure
+    validators = [];
+  }
 
  
 

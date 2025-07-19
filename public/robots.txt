@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://solblaze-detox.solanahub.app/sitemap.xml
+
+# Crawl-delay for good practice
+Crawl-delay: 1
+
+# Block unnecessary paths (add any specific paths you want to exclude)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /*.json$ 

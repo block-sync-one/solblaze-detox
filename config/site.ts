@@ -1,69 +1,51 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + HeroUI",
-  description: "Make beautiful websites regardless of your design experience.",
-  navItems: [
+  name: "SolBlaze Detox",
+  description: "Clean The Network - Advanced Solana validator monitoring and network health optimization tools",
+  url: "https://solblaze-detox.solanahub.app", // Update with your actual domain
+  ogImage: "/og-image.jpg", // We'll need to add this image
+  keywords: [
+    "Solana",
+    "blockchain",
+    "validator",
+    "network monitoring",
+    "DeFi",
+    "staking",
+    "cryptocurrency",
+    "Web3",
+    "decentralized"
+  ],
+  authors: [
     {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
+      name: "SolBlaze",
+      url: "https://solblaze.com",
     },
   ],
-  navMenuItems: [
-    {
-      label: "Profile",
-      href: "/profile",
-    },
-    {
-      label: "Dashboard",
-      href: "/dashboard",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
-    },
-  ],
-  links: {
-    github: "https://github.com/heroui-inc/heroui",
-    twitter: "https://twitter.com/hero_ui",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+  creator: "SolBlaze",
+  publisher: "SolBlaze",
+  robots: "index, follow",
+  language: "en",
+  category: "Technology",
+  classification: "Blockchain Infrastructure",
+  openGraph: {
+    type: "website" as const,
+    locale: "en_US",
+    title: "SolBlaze Detox - Clean The Network",
+    description: "Advanced Solana validator monitoring and network health optimization tools",
+    siteName: "SolBlaze Detox",
   },
-};
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "SolBlaze Detox - Clean The Network",
+    description: "Advanced Solana validator monitoring and network health optimization tools",
+    creator: "@SolBlaze", // Update with actual Twitter handle
+    site: "@SolBlaze", // Update with actual Twitter handle
+  },
+  verification: {
+    google: "", // Add Google Search Console verification code
+    yandex: "", // Add Yandex verification code if needed
+    bing: "", // Add Bing verification code if needed
+  },
+  manifest: "/site.webmanifest",
+} as const;
