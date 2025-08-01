@@ -75,7 +75,7 @@ export function updateSolBlazePool(signature: string): Promise<void> {
   return new Promise(async (resolve, reject) => {
     try {
       await fetch(
-        `https://stake.solblaze.org/api/v1/cls_stake?validator=${STAKE_STRATEGY}&txid=${signature}`,
+        `https://stake.solblaze.org/api/v1/cls_stake?validator=strategy:${STAKE_STRATEGY}&txid=${signature}`,
       ).catch(console.warn);
       await new Promise((resolve) => setTimeout(resolve, 2000));
       let result = await (
