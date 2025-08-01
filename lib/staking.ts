@@ -1,3 +1,6 @@
+
+
+
 import { depositStake } from "@solana/spl-stake-pool";
 import {
   PublicKey,
@@ -11,14 +14,14 @@ import { StakeInfo } from "@/types/stake";
 const SOLBLAZE_POOL_KEY = "stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi";
 const SOLANAHUB_VOTE_ACCOUNT = "7K8DVxtNJGnMtUY1CQJT5jcs8sFGSZTDiG7kowvFpECh";
 const MEMO_PROGRAM_ID = "MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr";
+const STAKE_STRATEGY = "f1uxPzViG8qwZctUQC4qkdf7B5Ufp5e8a5PYucCK3Pc";
 
 const createMemoInstruction = (
-  validatorVoteAccount: string,
   publicKey: PublicKey,
 ): TransactionInstruction => {
   const memo = JSON.stringify({
-    type: "cls/validator_stake/lamports",
-    value: { validator: validatorVoteAccount },
+    type: "cls/validator_stake/stake_accounts",
+    value: { validator: `strategy:${STAKE_STRATEGY}` },
   });
 
   return new TransactionInstruction({
@@ -55,7 +58,7 @@ export async function delegateStake(
 
     // @ts-ignore
     instructions.push(depositIx);
-    const memoIx = createMemoInstruction(SOLANAHUB_VOTE_ACCOUNT, publicKey);
+    const memoIx = createMemoInstruction(publicKey);
 
     instructions.push(memoIx);
     const signers = depositIx.signers as Signer[];
@@ -72,7 +75,7 @@ export function updateSolBlazePool(signature: string): Promise<void> {
   return new Promise(async (resolve, reject) => {
     try {
       await fetch(
-        `https://stake.solblaze.org/api/v1/cls_stake?validator=${SOLANAHUB_VOTE_ACCOUNT}&txid=${signature}`,
+        `https://stake.solblaze.org/api/v1/cls_stake?validator=${STAKE_STRATEGY}&txid=${signature}`,
       ).catch(console.warn);
       await new Promise((resolve) => setTimeout(resolve, 2000));
       let result = await (
