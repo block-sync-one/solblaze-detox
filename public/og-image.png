@@ -1,0 +1,4 @@
+# This is a placeholder for the static OG image
+# The actual image should be a 1200x630 PNG file
+# You can generate this by visiting /api/og in your browser and saving the image
+# Or use a tool like Puppeteer to capture the dynamic OG image 

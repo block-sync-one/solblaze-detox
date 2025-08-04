@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Clean The Network - Advanced Solana validator monitoring and network health optimization tools",
   url: "https://solblaze-flux.solanahub.app", // Update with your actual domain
-  ogImage: "/og-image.jpg", // We'll need to add this image
+  ogImage: "/api/og", // Dynamic OG image generation
   keywords: [
     "Solana",
     "blockchain",
@@ -20,7 +20,7 @@ export const siteConfig = {
   authors: [
     {
       name: "SolBlaze",
-      url: "https://solblaze.com",
+      url: "https://stake.solblaze.org/",
     },
   ],
   creator: "SolBlaze",
