@@ -187,7 +187,7 @@ export default function StakeBox({ validators }: { validators: Validator[] }) {
         validator: selectedAccount.validatorInfo?.name,
         amount: selectedAccount.balance,
         startingEpoch: selectedAccount.startingEpoch,
-        accountAge: selectedAccount.accountAge,
+        eligible: selectedAccount.accountAge > 10,
         txId: txId,
       });
       updateSolBlazePool(txId);
