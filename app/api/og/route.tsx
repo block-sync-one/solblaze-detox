@@ -97,7 +97,7 @@ export async function GET() {
             padding: '0 40px',
           }}
         >
-          Advanced Solana validator monitoring and network health optimization tools
+          Re-delegating your stake to good validators
         </div>
 
         {/* Bottom accent */}

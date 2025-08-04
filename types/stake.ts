@@ -16,4 +16,6 @@ export type StakeInfo = {
     warning: string;
   };
   state: string;
+  startingEpoch: number;
+  accountAge: number;
 };

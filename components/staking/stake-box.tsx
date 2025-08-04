@@ -91,29 +91,29 @@ export default function StakeBox({ validators }: { validators: Validator[] }) {
       );
 
       // filter out stake account that are not in active state
-      console.log("accounts", accounts);
       const stakeAccountsData: Partial<StakeInfo>[] = accounts
-        .map((account) =>
-          aggregateStakeAccount(
-            account,
-            memoizedValidators,
-            currentEpoch.epoch,
-          ),
+      .map((account) =>
+        aggregateStakeAccount(
+          account,
+          memoizedValidators,
+          currentEpoch.epoch,
+        ),
+      )
+      .filter((account) => account.isActive)
+      .sort((a, b) => {
+        // Sort bad validators to the top
+        if (
+          a.validatorInfo?.score === "bad" &&
+          b.validatorInfo?.score !== "bad"
         )
-        .filter((account) => account.isActive)
-        .sort((a, b) => {
-          // Sort bad validators to the top
-          if (
-            a.validatorInfo?.score === "bad" &&
-            b.validatorInfo?.score !== "bad"
-          )
-            return -1;
-          if (
-            a.validatorInfo?.score !== "bad" &&
-            b.validatorInfo?.score === "bad"
-          )
-            return 1;
-
+        return -1;
+        if (
+          a.validatorInfo?.score !== "bad" &&
+          b.validatorInfo?.score === "bad"
+        )
+        return 1;
+        
+        console.log("accounts", accounts);
           // If both are bad or both are good, sort by balance (highest first)
           return (b.balance || 0) - (a.balance || 0);
         });
@@ -186,6 +186,8 @@ export default function StakeBox({ validators }: { validators: Validator[] }) {
       track("delegate_stake", {
         validator: selectedAccount.validatorInfo?.name,
         amount: selectedAccount.balance,
+        startingEpoch: selectedAccount.startingEpoch,
+        accountAge: selectedAccount.accountAge,
         txId: txId,
       });
       updateSolBlazePool(txId);

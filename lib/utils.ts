@@ -21,11 +21,12 @@ export function aggregateStakeAccount(
 
   //@ts-ignore
   if (!parsedData.parsed?.info) return {};
-
+  console.log("parsedData", parsedData.parsed?.info);
   const info = parsedData.parsed.info;
   const balance = accountInfo.lamports / LAMPORTS_PER_SOL;
   const validator = info.stake?.delegation?.voter;
   const isDelegated = !!info.stake?.delegation;
+  const startingEpoch = info.stake?.delegation.activationEpoch;
   const isActive =
     Number(info.stake?.delegation?.activationEpoch) < currentEpoch;
   const findValidator = validators.find((v) => v.voteAccount == validator);
@@ -52,5 +53,7 @@ export function aggregateStakeAccount(
         }
       : undefined,
     state: isDelegated ? findValidator?.warning : "Initialized",
+    startingEpoch: startingEpoch,
+    accountAge: currentEpoch - startingEpoch,
   };
 }
