@@ -1,8 +1,8 @@
-# SolBlaze Detox - Clean The Network
+# SolBlaze flux - Clean The Network
 
 **A public good initiative by SolanaHub to strengthen the Solana network through intelligent validator selection.**
 
-SolBlaze Detox is a web application that helps Solana stakers identify poorly performing validators and seamlessly migrate their stake to high-quality, trusted validators. By improving validator selection across the network, we enhance Solana's security, performance, and decentralization for everyone.
+SolBlaze flux is a web application that helps Solana stakers identify poorly performing validators and seamlessly migrate their stake to high-quality, trusted validators. By improving validator selection across the network, we enhance Solana's security, performance, and decentralization for everyone.
 
 ## What This App Does
 

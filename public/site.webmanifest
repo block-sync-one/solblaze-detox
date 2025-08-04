@@ -1,6 +1,6 @@
 {
-  "name": "SolBlaze Detox - Clean The Network",
-  "short_name": "SolBlaze Detox",
+  "name": "SolBlaze flux - Clean The Network",
+  "short_name": "SolBlaze flux",
   "description": "Advanced Solana validator monitoring and network health optimization tools",
   "start_url": "/",
   "display": "standalone",

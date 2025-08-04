@@ -16,7 +16,7 @@ const faqData: FAQItem[] = [
   {
     question: "What are the risks of delegating to bad validators?",
     answer:
-      "Bad validators can cause slow network experience, missed rewards, and contribute to network instability. They may have good uptime & low commission rates, but this doesn&apos;t mean they are good for the network.",
+      "Bad validators can cause slow network experience, missed rewards, and contribute to network instability. They may have good uptime & low commission rates, but this doesn't mean they are good for the network.",
   },
   {
     question: "What is the definition of high commission?",
@@ -32,11 +32,6 @@ const faqData: FAQItem[] = [
     question: "Can I unstake my SOL anytime?",
     answer:
       "Yes! With liquid staking through SolBlaze, you can trade your bSOL tokens for SOL anytime on various exchanges, or use our unstaking mechanism. This provides much more flexibility than traditional staking, which requires waiting for the unstaking period.",
-  },
-  {
-    question: "What fees does SolBlaze charge?",
-    answer:
-      "SolBlaze charges a small commission (around 5%) on staking rewards, with no deposit or withdrawal fees. This fee helps maintain our validator selection algorithms, security monitoring, and protocol development. You keep the majority of your staking rewards while benefiting from professional validator management.",
   },
   {
     question: "How do I get started with SolBlaze?",
@@ -119,7 +114,7 @@ export default function FAQ() {
               <button
                 className="bg-primary text-secondary font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors duration-200 flex items-center gap-2"
                 onClick={() =>
-                  window.open("https://discord.gg/8c9KAYKS9v", "_blank")
+                  window.open(" https://solblaze.org/discord", "_blank")
                 }
               >
                 <Icon className="w-5 h-5" icon="material-symbols:forum" />

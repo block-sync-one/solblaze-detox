@@ -1,10 +1,10 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "SolBlaze Detox",
+  name: "SolBlaze flux",
   description:
     "Clean The Network - Advanced Solana validator monitoring and network health optimization tools",
-  url: "https://solblaze-detox.solanahub.app", // Update with your actual domain
+  url: "https://solblaze-flux.solanahub.app", // Update with your actual domain
   ogImage: "/og-image.jpg", // We'll need to add this image
   keywords: [
     "Solana",
@@ -32,18 +32,18 @@ export const siteConfig = {
   openGraph: {
     type: "website" as const,
     locale: "en_US",
-    title: "SolBlaze Detox - Clean The Network",
+    title: "SolBlaze flux - Clean The Network",
     description:
       "A tool to clean the network by re-delegating your stake to good validators",
-    siteName: "SolBlaze Detox",
+    siteName: "SolBlaze flux",
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "SolBlaze Detox - Clean The Network",
+    title: "SolBlaze flux - Clean The Network",
     description:
       "A tool to clean the network by re-delegating your stake to good validators",
-    creator: "@SolBlaze", // Update with actual Twitter handle
-    site: "@SolBlaze", // Update with actual Twitter handle
+    creator: "solblaze_org", // Update with actual Twitter handle
+    site: "@solblaze_org", // Update with actual Twitter handle
   },
   verification: {
     google: "", // Add Google Search Console verification code

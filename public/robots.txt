@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://solblaze-detox.solanahub.app/sitemap.xml
+Sitemap: https://solblaze-flux.solanahub.app/sitemap.xml
 
 # Crawl-delay for good practice
 Crawl-delay: 1
