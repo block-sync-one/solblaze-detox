@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "SolBlaze flux",
   description:
-    "Clean The Network - Re-delegating your stake to good validators",
+    "Re-delegating your stake to good validators",
   url: "https://solblaze-flux.solanahub.app", // Update with your actual domain
   ogImage: "/api/og", // Dynamic OG image generation
   keywords: [
